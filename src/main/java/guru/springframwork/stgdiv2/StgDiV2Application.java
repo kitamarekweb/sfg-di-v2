@@ -38,9 +38,15 @@ public class StgDiV2Application {
 		ConstructorInjectedController constructorInjectedController = (ConstructorInjectedController) ctx.getBean("constructorInjectedController");
 		System.out.println(constructorInjectedController.getGreeting());
 
-		System.out.println("--- Primary Bean");
+		System.out.println("---- Primary Bean");
 		PrimaryInjectedController primaryInjectedController = (PrimaryInjectedController) ctx.getBean("primaryInjectedController");
 		System.out.println(primaryInjectedController.getGreeting());
+
+		I18nController i18nController = (I18nController) ctx.getBean("i18nController");
+		System.out.println("---- Profiles");
+		System.out.println(i18nController.sayHello());
+		// if two Service has the same label etc. @Service("i18nService") then we have to specify Profiles and configure it in application.properties etc. spring.profiles.active=ES or we get an error:
+		// Failed to parse configuration class [guru.springframwork.stgdiv2.StgDiV2Application]; nested exception is org.springframework.context.annotation.ConflictingBeanDefinitionException: Annotation-specified bean name 'i18nGreeting' for bean class [guru.springframwork.stgdiv2.services.I18nSpanishGreetingService] conflicts with existing, non-compatible bean definition of same name and class [guru.springframwork.stgdiv2.services.I18nEnglishGreetingService]
 	}
 
 }
