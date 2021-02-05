@@ -1,9 +1,6 @@
 package guru.springframwork.stgdiv2;
 
-import guru.springframwork.stgdiv2.controllers.ConstructorInjectedController;
-import guru.springframwork.stgdiv2.controllers.MyController;
-import guru.springframwork.stgdiv2.controllers.PropertyInjectedController;
-import guru.springframwork.stgdiv2.controllers.SetterInjectedController;
+import guru.springframwork.stgdiv2.controllers.*;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -40,6 +37,10 @@ public class StgDiV2Application {
 		System.out.println("---- Constructor");
 		ConstructorInjectedController constructorInjectedController = (ConstructorInjectedController) ctx.getBean("constructorInjectedController");
 		System.out.println(constructorInjectedController.getGreeting());
+
+		System.out.println("--- Primary Bean");
+		PrimaryInjectedController primaryInjectedController = (PrimaryInjectedController) ctx.getBean("primaryInjectedController");
+		System.out.println(primaryInjectedController.getGreeting());
 	}
 
 }
